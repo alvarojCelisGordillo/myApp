@@ -9,6 +9,14 @@ class ClienteController extends Controller
 {
     //
 
+    public function index() {
+        $cliente = Cliente::get();
+
+        return [
+            'Clientes'=> $cliente
+        ];
+    }
+
     public function store(Request $request) {
         $cliente = new Cliente();
         $cliente->tipo_documento = $request->tipo_documento;

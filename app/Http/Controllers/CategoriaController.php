@@ -8,6 +8,12 @@ use Illuminate\Http\Request;
 class CategoriaController extends Controller
 {
     //
+    public function index() {
+        $categoria = Categoria::get();
+        return [
+            'Categorias'=> $categoria
+        ];
+    }
 
     public function store(Request $request) {
         $categoria = new Categoria();
