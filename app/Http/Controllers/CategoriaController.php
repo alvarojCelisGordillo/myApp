@@ -22,4 +22,17 @@ class CategoriaController extends Controller
 
         $categoria->save();
     }
+
+    public function update(Request $request) {
+        $categoria = Categoria::findOrFail($request->id);
+        $categoria->nombre = $request->nombre;
+        $categoria->estado = $request->estado;
+
+        $categoria->save();
+    }
+
+    public function destroy(Request $request) {
+        $categoria = Categoria::findOrFail($request->id);
+        $categoria->delete();
+    }
 }

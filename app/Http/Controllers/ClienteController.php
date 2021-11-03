@@ -30,4 +30,24 @@ class ClienteController extends Controller
 
         $cliente->save();
     }
+
+    public function update(Request $request) {
+        $cliente = Cliente::findOrFail($request->id);
+        $cliente->tipo_documento = $request->tipo_documento;
+        $cliente->numero_documento = $request->numero_documento;
+        $cliente->nombres = $request->nombres;
+        $cliente->apellidos = $request->apellidos;
+        $cliente->telefono = $request->telefono;
+        $cliente->direccion = $request->direccion;
+        $cliente->email = $request->email;
+        $cliente->estado = $request->estado;
+
+        $cliente->save();
+
+    }
+
+    public function destroy(Request $request) {
+        $cliente = Cliente::findOrFail($request->id);
+        $cliente->delete();
+    }
 }
