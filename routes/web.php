@@ -15,6 +15,9 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CategoriaController;
 use App\Http\Controllers\MarcaController;
 use App\Http\Controllers\ClienteController;
+use App\Http\Controllers\ProductoController;
+use App\Http\Controllers\FacturaController;
+use App\Http\Controllers\DetFacturaController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -38,4 +41,23 @@ Route::post('/api/cliente/registrar', [ClienteController::class, 'store']);
 Route::get('/api/cliente', [ClienteController::class, 'index']);
 Route::put('/api/cliente/actualizar', [ClienteController::class, 'update']);
 Route::delete('/api/cliente/eliminar', [ClienteController::class, 'destroy']);
+
+// :::::::::::::::::::::: Routes Productos :::::::::::::::::::::::::::::::::::::::::::::::::
+Route::post('/api/producto/registrar', [ProductoController::class, 'store']);
+Route::get('/api/producto', [ProductoController::class, 'index']);
+Route::put('/api/producto/actualizar', [ProductoController::class, 'update']);
+Route::delete('/api/producto/eliminar', [ProductoController::class, 'destroy']);
+
+// ::::::::::::::::::::::::: Routes Facturas ::::::::::::::::::::::::::::::::::::::::
+Route::post('/api/factura/registrar', [FacturaController::class, 'store']);
+Route::get('/api/factura', [FacturaController::class, 'index']);
+Route::put('/api/factura/actualizar', [FacturaController::class, 'update']);
+Route::delete('/api/factura/eliminar', [FacturaController::class, 'destroy']);
+
+
+// :::::::::::::::::::::::::: Routes DetalleFacturas :::::::::::::::::::::::::::::
+Route::post('/api/detallefactura/registrar', [DetFacturaController::class, 'store']);
+Route::get('/api/detallefactura', [DetFacturaController::class, 'index']);
+Route::put('/api/detallefactura/actualizar', [DetFacturaController::class, 'update']);
+Route::delete('/api/detallefactura/eliminar', [DetFacturaController::class, 'destroy']);
 
